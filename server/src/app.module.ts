@@ -1,7 +1,8 @@
-import { ProductModule } from './product/product.module';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ProductModule } from './product/product.module';
 import { MonitoringModule } from './monitoring/monitoring.module';
+import { WebsocketModule } from './websocket/websocket.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { MonitoringModule } from './monitoring/monitoring.module';
     }),
     ProductModule,
     MonitoringModule,
+    WebsocketModule,
   ],
 })
 export class AppModule {}
