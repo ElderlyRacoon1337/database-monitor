@@ -1,0 +1,10 @@
+databases:
+  - name: defaultdb
+    host: tightly-pumped-sloth.a1.pgedge.io
+    port: 5432
+    user: admin
+    password: 9z268U4oo4rB6U9eIfU5M4ed
+    sslmode: require
+    metric_prefix: pg_
+    labels:
+      env: production

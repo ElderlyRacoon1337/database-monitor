@@ -1,0 +1,25 @@
+.root {
+  padding: 30px;
+  color: #6e7175;
+  height: auto;
+  width: 200px;
+  height: calc(100% - 115px);
+
+  position: sticky;
+  top: 60px;
+
+  .link {
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 20px;
+    cursor: pointer;
+
+    &:hover {
+      color: #000;
+    }
+  }
+}
+
+.active {
+  color: #3693ba;
+}

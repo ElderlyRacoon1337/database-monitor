@@ -1,0 +1,22 @@
+.content {
+  display: flex;
+}
+
+.stats {
+  padding: 20px;
+  flex: 1;
+  background-color: #f8f9fa;
+  border-left: 1px solid #dee2e6;
+  min-height: calc(100vh - 95px);
+
+  img {
+    margin-top: 20px;
+  }
+}
+
+.choose {
+  text-align: center;
+  margin-top: 100px;
+  color: #9c9c9c;
+  font-weight: 300;
+}

@@ -1,10 +1,39 @@
 import { Injectable } from '@nestjs/common';
 import { InjectConnection } from '@nestjs/typeorm';
+import { Client } from 'pg';
 import { Connection } from 'typeorm';
+import osu from 'node-os-utils';
 
 @Injectable()
 export class MonitoringService {
-  constructor(@InjectConnection() private readonly connection: Connection) {}
+  private client: Client;
+
+  constructor(@InjectConnection() private readonly connection: Connection) {
+    this.client = new Client({
+      user: 'postgres',
+      host: 'localhost',
+      database: 'postgres',
+      password: 'helloworld',
+      port: 5432,
+    });
+    this.client.connect((err) => {
+      if (err) {
+        console.error('connection error', err.stack);
+      } else {
+        console.log('connected to PostgreSQL');
+      }
+    });
+  }
+
+  async getCpuAndMemoryUsage() {
+    const cpuUsage = await osu.cpu.usage();
+    const memoryUsage = await osu.mem.used();
+
+    return {
+      cpu: cpuUsage,
+      memory: memoryUsage,
+    };
+  }
 
   async getDatabaseStats(): Promise<any> {
     return this.connection.query(`

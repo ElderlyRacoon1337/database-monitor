@@ -9,17 +9,12 @@ import { MonitoringModule } from '../monitoring/monitoring.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'tightly-pumped-sloth.a1.pgedge.io',
+      host: 'localhost',
       port: 5432,
-      username: 'admin',
-      password: '9z268U4oo4rB6U9eIfU5M4ed',
-      database: 'defaultdb',
-      ssl: true,
-      extra: {
-        ssl: {
-          rejectUnauthorized: false,
-        },
-      },
+      username: 'postgres',
+      password: 'helloworld',
+      database: 'postgres',
+      ssl: false,
       autoLoadEntities: true,
       synchronize: true,
     }),
